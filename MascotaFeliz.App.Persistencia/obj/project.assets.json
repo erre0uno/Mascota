@@ -1887,11 +1887,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Hospitalizacion\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj",
+      "projectUniqueName": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj",
       "projectName": "MascotaFeliz.App.Persistencia",
-      "projectPath": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Hospitalizacion\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj",
+      "projectPath": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj",
       "packagesPath": "C:\\Users\\Jparkur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Hospitalizacion\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\obj\\",
+      "outputPath": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jparkur\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1908,8 +1908,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Hospitalizacion\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {
-              "projectPath": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Hospitalizacion\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj"
+            "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {
+              "projectPath": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj"
             }
           }
         }

@@ -1,0 +1,18 @@
+﻿@page
+@model MascotaFeliz.App.Front.Pages.ListaModel
+@{
+}
+
+<h1>Listado de prueba </h1>
+<table class="table">
+    @foreach (var item in Model.Duenos)
+    {   
+        <tr>
+            <td>@item.Nombres  </td>
+            <td>@item.Apellidos  </td>
+            <td>@item.Direccion  </td>
+            <td>@item.Correo  </td>
+        </tr>
+    }
+</table>
+

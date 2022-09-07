@@ -8,6 +8,7 @@ namespace MascotaFeliz.App.Consola
     {
         private static IRepositorioPersona repoPersona = new RepositorioPersona(new Persistencia.AppContext());
         private static IRepositorioMedico repoMedico = new RepositorioMedico(new Persistencia.AppContext());
+        private static IRepositorioDueno repoDueno = new RepositorioDueno(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {
@@ -18,6 +19,8 @@ namespace MascotaFeliz.App.Consola
             //BuscarMedico(3);
             //BorrarMedico(5);
             //GetMedicos();
+            //GetDuenos();
+
             Console.WriteLine("prueba Culminada !! ");
         }
 
@@ -100,5 +103,38 @@ namespace MascotaFeliz.App.Consola
                 Console.WriteLine(e.GetBaseException());
             }
         }
+        private static void GetDuenos()
+        {
+            try
+            {
+                var duenos = repoDueno.GetAllDuenos();
+                foreach (var item in duenos)
+                {
+                    Console.WriteLine("Dueños " + item.Nombres + " " + item.Apellidos);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+        }
+
+                private static void BorrarDueno(int id){
+            try
+            {
+                var result = repoDueno.DeleteDueno(id);
+                if(result == 0 ){
+                    Console.WriteLine("Dueno no encontrado");
+                }else{
+                    Console.WriteLine("Dueno Eliminado");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine( e.GetBaseException() );
+            }
+        }
+
     }
 }
