@@ -35,11 +35,4 @@ namespace MascotaFeliz.App.Persistencia
 
     }
 
-
-    /*
-    dotnet  add reference ..\HospiCasa.App.Dominio\
-    adiiciona al alrchivo de configuracion en persistencia.csproj
-    la ruta del dominio de la app
-
-    */
 }

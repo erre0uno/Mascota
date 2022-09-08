@@ -12,6 +12,10 @@
             <td>@item.Apellidos  </td>
             <td>@item.Direccion  </td>
             <td>@item.Correo  </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-duenoId="@item.PersonaID"  >
+                Detalles de dueño </a>
+            </td>
         </tr>
     }
 </table>

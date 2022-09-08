@@ -67,6 +67,7 @@ namespace MascotaFeliz.App.Persistencia
         Dueno IRepositorioDueno.GetDueno(int id)
         {
             return _appContext.Duenos.FirstOrDefault(m => m.PersonaID == id);
+            //return ListaDuenos.SingleOrDefault(m => m.PersonaID == id);
         }
 
     }
