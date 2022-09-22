@@ -6,9 +6,8 @@ namespace MascotaFeliz.App.Consola
 {
     class program
     {
-        private static IRepositorioPersona repoPersona = new RepositorioPersona(new Persistencia.AppContext());
-        private static IRepositorioMedico repoMedico = new RepositorioMedico(new Persistencia.AppContext());
-        private static IRepositorioDueno repoDueno = new RepositorioDueno(new Persistencia.AppContext());
+        //private static IRepositorioPersona repoPersona = new RepositorioPersona(new Persistencia.Db());
+        private static IRepositorioDueno repoDueno = new RepositorioDueno(new Persistencia.AppDbContext());
 
         static void Main(string[] args)
         {
@@ -24,10 +23,10 @@ namespace MascotaFeliz.App.Consola
             Console.WriteLine("prueba Culminada !! ");
         }
 
+
+        /*
         private static void AddPersona()
         {
-
-            /*
             var med = new Medico{ 
                 Nombres="Nelson Andres",
                 Apellidos="Montealegre",
@@ -35,9 +34,7 @@ namespace MascotaFeliz.App.Consola
                 Tarjeta="abc123"
             };
             repoPersona.AddPersona(med);
-            */
 
-            /*
             var due = new Dueno{ 
                 Nombres="Nelson Andres",
                 Apellidos="Montealegre",
@@ -45,7 +42,6 @@ namespace MascotaFeliz.App.Consola
                 Correo="abc123@gmail.com"
             };
             repoPersona.AddPersona(due);
-            */
         }
         private static void AddMedico()
         {
@@ -135,6 +131,8 @@ namespace MascotaFeliz.App.Consola
                 Console.WriteLine( e.GetBaseException() );
             }
         }
+        */
+
 
     }
 }

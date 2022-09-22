@@ -7,9 +7,9 @@ namespace MascotaFeliz.App.Persistencia
 {
     public class RepositorioHistoria :IRepositorioHistoria
     {
-        private readonly AppContext _appContext;
+        private readonly AppDbContext _appContext;
 
-        public  RepositorioHistoria(AppContext appContext){
+        public  RepositorioHistoria(AppDbContext appContext){
             _appContext=appContext;
         }
 

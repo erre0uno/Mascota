@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MascotaFeliz.App.Consola",
-    "\\MascotaFeliz.App.Persistencia",
+    "\\MascotaFeliz.App.Front",
+    "\\MascotaFeliz.App.Front\\Pages",
+    "\\MascotaFeliz.App.Front\\Pages\\Shared",
+    "\\MascotaFeliz.App.Front\\Pages\\Test",
     "\\MascotaFeliz.App.Persistencia\\AppRepositorios"
   ],
-  "SelectedNode": "\\MascotaFeliz.App.Persistencia\\AppRepositorios\\RepositorioPersona.cs",
+  "SelectedNode": "\\MascotaFeliz.App.Front\\Pages\\Test\\Detalles.cshtml.cs",
   "PreviewInSolutionExplorer": false
 }

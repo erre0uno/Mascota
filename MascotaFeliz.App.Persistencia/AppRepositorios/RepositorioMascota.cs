@@ -8,9 +8,9 @@ namespace MascotaFeliz.App.Persistencia
 
     public class RepositorioMascota :IRepositorioMascota
     {
-        private readonly AppContext _appContext;
+        private readonly AppDbContext _appContext;
 
-        public  RepositorioMascota(AppContext appContext){
+        public  RepositorioMascota(AppDbContext appContext){
             _appContext=appContext;
         }
 
@@ -21,13 +21,12 @@ namespace MascotaFeliz.App.Persistencia
             //throw new System.NotImplementedException();
         }
         Mascota IRepositorioMascota.UpdateMascota(Mascota _mascota){
-            var mascotaEncontrado =_appContext.Mascotas.FirstOrDefault(m => m.MascotaID == _mascota.MascotaID );
+        var mascotaEncontrado =_appContext.Mascotas.FirstOrDefault(m => m.MascotaID == _mascota.MascotaID );
             if (mascotaEncontrado != null){
                 mascotaEncontrado.Nombre = _mascota.Nombre;
                 mascotaEncontrado.Color = _mascota.Color;
                 mascotaEncontrado.Especie= _mascota.Especie;
                 mascotaEncontrado.Raza = _mascota.Raza;
-                mascotaEncontrado.Estado = _mascota.Estado;
 
                 _appContext.SaveChanges();
             }

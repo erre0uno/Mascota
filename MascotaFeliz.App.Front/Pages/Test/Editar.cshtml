@@ -1,0 +1,80 @@
+﻿@page
+@model MascotaFeliz.App.Front.Pages.EditarModel
+@{
+    string titulo;
+    string id="";
+    if (Model.Dueno.DuenoID == 0)
+    {
+        titulo = "Crear Dueño";
+    }
+    else { titulo = "Dueño id ";  id = "| "+@Model.Dueno.DuenoID.ToString();}
+}
+@if(@Model.alert != null){
+    @section Scripts{
+        <script>
+            $(function(){
+                swal({
+                title: "Dueño",
+                text: "@Model.alert",
+                icon: "success",
+                button: "ok",
+                });
+            })
+        </script>
+    }
+}
+
+
+<div class="container">
+
+    <h4 style="color: blue;">
+        <i class="fa-solid fa-user-shield"></i> &nbsp; @titulo  @id
+    </h4>
+
+    <form method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input type="hidden" asp-for="Dueno.DuenoID" id="Dueno.DuenoID" />
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Dueno.Nombres">Nombres </label>
+            <input type="text" asp-for="Dueno.Nombres" class="form-control" id="Dueno.Nombres" placeholder="Nombres">
+            <span asp-validation-for="Dueno.Nombres" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Dueno.Apellidos">Apellidos </label>
+            <input type="text" asp-for="Dueno.Apellidos" class="form-control" id="Dueno.Apellidos"
+                placeholder="Apellidos">
+            <span asp-validation-for="Dueno.Apellidos" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Dueno.Direccion">Direccion </label>
+            <input type="text" asp-for="Dueno.Direccion" class="form-control" id="Dueno.Direccion"
+                placeholder="Direccion">
+            <span asp-validation-for="Dueno.Direccion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Dueno.Telefono">Telefono </label>
+            <input type="text" asp-for="Dueno.Telefono" class="form-control" id="Dueno.Telefono" placeholder="Telefono">
+            <span asp-validation-for="Dueno.Telefono" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Dueno.Correo">Correo</label>
+            <input type="email" asp-for="Dueno.Correo" class="form-control" id="Dueno.Correo" placeholder="Correo">
+            <span asp-validation-for="Dueno.Correo" class="text-danger"></span>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">
+            <i class="fa-regular fa-floppy-disk"></i>&nbsp;Grabar
+        </button>&nbsp;&nbsp;
+        <a class="btn btn-primary table-btn" asp-page="./Lista">
+            <i class="fa-solid fa-rotate-left"></i>&nbsp;return
+        </a>
+    </form>
+    <div>

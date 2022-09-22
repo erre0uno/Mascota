@@ -41,9 +41,7 @@ button.accept-policy[b-pratnr2izf] {
 }
 
 .footer[b-pratnr2izf] {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px;
 }
+

@@ -43,3 +43,28 @@ https://www.youtube.com/watch?v=AlfeL_YBN_c&t=1195s
 
 Formularios Web:
 https://youtu.be/Nyq8nB31E0g
+
+Crud:-lista - detalles
+https://youtu.be/4vPTIk1kvRw?t=550
+
+editar:
+https://youtu.be/4vPTIk1kvRw
+
+editar-update-Back
+https://youtu.be/p_Gz3PEaodE
+
+create
+https://youtu.be/mLyJCiRwcG4
+
+validacion
+https://youtu.be/F8J4jCr5gMc
+
+
+relaciones 
+https://youtu.be/JDs9yxVJYVM
+
+filtro y entidades relacionadas
+https://youtu.be/-yKftCAVXss
+
+modificacion  filtro y entidades relacionadas
+https://youtu.be/VkibJqzlq4c

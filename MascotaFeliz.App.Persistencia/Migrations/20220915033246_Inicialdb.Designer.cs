@@ -4,16 +4,18 @@ using MascotaFeliz.App.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace MascotaFeliz.App.Persistencia.Migrations
 {
-    [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppDbContext))]
+    [Migration("20220915033246_Inicialdb")]
+    partial class Inicialdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +23,45 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("MascotaFeliz.App.Dominio.Dueno", b =>
+                {
+                    b.Property<int>("DuenoID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("DuenoID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DuenoID"), 1L, 1);
+
+                    b.Property<string>("Apellidos")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Correo")
+                        .IsRequired()
+                        .HasMaxLength(65)
+                        .HasColumnType("nvarchar(65)");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.Property<string>("Nombres")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
+
+                    b.HasKey("DuenoID");
+
+                    b.ToTable("Duenos");
+                });
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
                 {
@@ -31,21 +72,22 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoriaID"), 1L, 1);
 
                     b.Property<string>("Diagnostico")
-                        .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<string>("FechaCreacion")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MascotaID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Medicamentos")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("HistoriaID");
+
+                    b.HasIndex("MascotaID");
 
                     b.ToTable("Historias");
                 });
@@ -63,19 +105,13 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("DuenoPersonaID")
+                    b.Property<int>("DuenoID")
                         .HasColumnType("int");
 
                     b.Property<string>("Especie")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("Estado")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HistoriaID")
-                        .HasColumnType("int");
 
                     b.Property<int>("MedicoID")
                         .HasColumnType("int");
@@ -86,28 +122,25 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Raza")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MascotaID");
 
-                    b.HasIndex("DuenoPersonaID");
-
-                    b.HasIndex("HistoriaID");
+                    b.HasIndex("DuenoID");
 
                     b.HasIndex("MedicoID");
 
                     b.ToTable("Mascotas");
                 });
 
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Persona", b =>
+            modelBuilder.Entity("MascotaFeliz.App.Dominio.Medico", b =>
                 {
-                    b.Property<int>("PersonaID")
+                    b.Property<int>("MedicoID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonaID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicoID"), 1L, 1);
 
                     b.Property<string>("Apellidos")
                         .IsRequired()
@@ -119,20 +152,24 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("PersonaID");
+                    b.Property<string>("Tarjeta")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
-                    b.ToTable("Personas");
+                    b.Property<string>("Telefono")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Persona");
+                    b.HasKey("MedicoID");
+
+                    b.ToTable("Medicos");
                 });
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Visita", b =>
@@ -143,13 +180,12 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VisitaID"), 1L, 1);
 
-                    b.Property<int?>("EstadoAnimo")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FechaVisita")
+                    b.Property<string>("EstadoAnimo")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaVisita")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("FrecuenciaCardiaca")
                         .HasColumnType("int");
@@ -167,7 +203,6 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("Recomendacion")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -183,39 +218,22 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.ToTable("Visitas");
                 });
 
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Dueno", b =>
+            modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
                 {
-                    b.HasBaseType("MascotaFeliz.App.Dominio.Persona");
+                    b.HasOne("MascotaFeliz.App.Dominio.Mascota", "Mascota")
+                        .WithMany()
+                        .HasForeignKey("MascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Correo")
-                        .IsRequired()
-                        .HasMaxLength(65)
-                        .HasColumnType("nvarchar(65)");
-
-                    b.HasDiscriminator().HasValue("Dueno");
-                });
-
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Medico", b =>
-                {
-                    b.HasBaseType("MascotaFeliz.App.Dominio.Persona");
-
-                    b.Property<string>("Tarjeta")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.HasDiscriminator().HasValue("Medico");
+                    b.Navigation("Mascota");
                 });
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Mascota", b =>
                 {
-                    b.HasOne("MascotaFeliz.App.Dominio.Dueno", null)
+                    b.HasOne("MascotaFeliz.App.Dominio.Dueno", "Dueno")
                         .WithMany("ListaMascotas")
-                        .HasForeignKey("DuenoPersonaID");
-
-                    b.HasOne("MascotaFeliz.App.Dominio.Historia", "Historia")
-                        .WithMany()
-                        .HasForeignKey("HistoriaID")
+                        .HasForeignKey("DuenoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -225,7 +243,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Historia");
+                    b.Navigation("Dueno");
 
                     b.Navigation("Medico");
                 });
@@ -245,14 +263,14 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Navigation("Medico");
                 });
 
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
-                {
-                    b.Navigation("listaVisitas");
-                });
-
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Dueno", b =>
                 {
                     b.Navigation("ListaMascotas");
+                });
+
+            modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
+                {
+                    b.Navigation("listaVisitas");
                 });
 #pragma warning restore 612, 618
         }

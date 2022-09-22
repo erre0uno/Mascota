@@ -4,31 +4,18 @@ using MascotaFeliz.App.Persistencia;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-
-//Asociamos los repositorios a la capa de presentación para el uso del servicio DbContext.        
+builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
+                
 builder.Services.AddScoped<IRepositorioDueno , RepositorioDueno>();
-//AppContext
-
 
 /*
-services.AddSingleton<PracticaVeterinaria.App.Persistencia.AppRepositorios.AppContext>();
-
-builder.Services.AddDbContext<AppContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
-
-builder.Services.AddDbContext<AppContext>;
-builder.Services.AddDbContext<AppContext>(options=>options.UseSqlServer(
-    builder.Configuration.GetConnectionString("*")
-) );
+builder.Services.AddScoped<IRepositorioDueno , RepositorioDueno>();
 */
-
 builder.Services.AddRazorPages();
-
-
-
-
 
 
 var app = builder.Build();

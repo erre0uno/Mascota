@@ -8,9 +8,9 @@ namespace MascotaFeliz.App.Persistencia
 
     public class RepositorioVisita :IRepositorioVisita
     {
-        private readonly AppContext _appContext;
+        private readonly AppDbContext _appContext;
 
-        public  RepositorioVisita(AppContext appContext){
+        public  RepositorioVisita(AppDbContext appContext){
             _appContext=appContext;
         }
 
@@ -30,7 +30,7 @@ namespace MascotaFeliz.App.Persistencia
                 visitaEncontrado.FrecuenciaRespiratoria = _visita.FrecuenciaRespiratoria;
                 visitaEncontrado.EstadoAnimo = _visita.EstadoAnimo;
                 visitaEncontrado.Recomendacion = _visita.Recomendacion;
-                visitaEncontrado.MedicoID = _visita.MedicoID;
+                //visitaEncontrado.MedicoID = _visita.MedicoID;
 
                 _appContext.SaveChanges();
             }

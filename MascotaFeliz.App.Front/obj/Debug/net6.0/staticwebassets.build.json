@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tXi6luGTHDjF3vVHjZU7HpmTHfR4jiidiMNIedL44YQ=",
+  "Hash": "mkC1NOjydb2AmOujwi8RHtA6hX0gJ02ZDMA1v8tRF1k=",
   "Source": "MascotaFeliz.App.Front",
   "BasePath": "_content/MascotaFeliz.App.Front",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Front\\wwwroot\\img\\pmascotas.jpg",
+      "SourceId": "MascotaFeliz.App.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Front\\wwwroot\\",
+      "BasePath": "_content/MascotaFeliz.App.Front",
+      "RelativePath": "img/pmascotas.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\pmascotas.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Front\\wwwroot\\img\\pmascotas2.jpg",
+      "SourceId": "MascotaFeliz.App.Front",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Front\\wwwroot\\",
+      "BasePath": "_content/MascotaFeliz.App.Front",
+      "RelativePath": "img/pmascotas2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\pmascotas2.jpg"
     },
     {
       "Identity": "C:\\Users\\Jparkur\\Desktop\\W11\\Dev\\Sharp\\Repos\\MascotaFeliz.App\\MascotaFeliz.App.Front\\wwwroot\\js\\site.js",

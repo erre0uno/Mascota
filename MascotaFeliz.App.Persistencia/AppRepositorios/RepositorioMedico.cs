@@ -7,9 +7,9 @@ namespace MascotaFeliz.App.Persistencia
 {
     public class RepositorioMedico :IRepositorioMedico
     {
-        private readonly AppContext _appContext;
+        private readonly AppDbContext _appContext;
 
-        public  RepositorioMedico(AppContext appContext){
+        public  RepositorioMedico(AppDbContext appContext){
             _appContext=appContext;
         }
 
@@ -17,14 +17,14 @@ namespace MascotaFeliz.App.Persistencia
             var medicoAdicionado= _appContext.Medicos.Add(medico);
             _appContext.SaveChanges();
             return medicoAdicionado.Entity;
-            //throw new System.NotImplementedException();
         }
         Medico IRepositorioMedico.UpdateMedico(Medico _medico){
-            var medicoEncontrado =_appContext.Medicos.FirstOrDefault(m => m.PersonaID == _medico.PersonaID );
+            var medicoEncontrado =_appContext.Medicos.FirstOrDefault(m => m.MedicoID == _medico.MedicoID );
             if (medicoEncontrado != null){
                 medicoEncontrado.Nombres= _medico.Nombres;
                 medicoEncontrado.Apellidos= _medico.Apellidos;
                 medicoEncontrado.Direccion= _medico.Direccion;
+                medicoEncontrado.Telefono= _medico.Telefono;
                 medicoEncontrado.Tarjeta= _medico.Tarjeta;
                 _appContext.SaveChanges();
             }
@@ -35,7 +35,7 @@ namespace MascotaFeliz.App.Persistencia
             return _appContext.Medicos;
         }
         int IRepositorioMedico.DeleteMedico(int idmedico){
-            var medicoEncontrado = _appContext.Medicos.FirstOrDefault(m =>m.PersonaID == idmedico);
+            var medicoEncontrado = _appContext.Medicos.FirstOrDefault(m =>m.MedicoID == idmedico);
             if (medicoEncontrado == null)
                 return 0;
             _appContext.Medicos.Remove(medicoEncontrado);
@@ -43,7 +43,7 @@ namespace MascotaFeliz.App.Persistencia
             return 1;    
         }
         Medico IRepositorioMedico.GetMedico(int idmedico){
-            return _appContext.Medicos.FirstOrDefault(m =>m.PersonaID == idmedico);
+            return _appContext.Medicos.FirstOrDefault(m =>m.MedicoID == idmedico);
         }
 
     }

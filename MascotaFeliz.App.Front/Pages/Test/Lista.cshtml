@@ -3,20 +3,51 @@
 @{
 }
 
-<h1>Listado de prueba </h1>
-<table class="table">
-    @foreach (var item in Model.Duenos)
-    {   
-        <tr>
-            <td>@item.Nombres  </td>
-            <td>@item.Apellidos  </td>
-            <td>@item.Direccion  </td>
-            <td>@item.Correo  </td>
-            <td>
-                <a class="btn btn-primary table-btn" asp-page="./Detalles" asp-route-duenoId="@item.PersonaID"  >
-                Detalles de dueño </a>
-            </td>
-        </tr>
-    }
-</table>
+<div>
+    <h4>
+        <i class="fa-solid fa-user-shield"></i> &nbsp; Dueños Registrados
+    </h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dueno in Model.Duenos)
+            {
+                <tr>
+                    <td>@dueno.DuenoID </td>
+                    <td>@dueno.Nombres </td>
+                    <td>@dueno.Apellidos </td>
+                    <td>@dueno.Direccion </td>
+                    <td>@dueno.Telefono </td>
+                    <td>@dueno.Correo </td>
+                    <td>
+                        <a class="btn btn-info table-btn btn-sm" asp-page="./Detalles" asp-route-duenoId="@dueno.DuenoID">
+                            <i class="fa-solid fa-circle-info"></i> Detalles </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning table-btn btn-sm" asp-page="./Editar" asp-route-duenoId="@dueno.DuenoID">
+                            <i class="fa-regular fa-pen-to-square"></i> Editar </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger table-btn btn-sm" asp-page="./Eliminar" asp-route-duenoId="@dueno.DuenoID">
+                            <i class="fa-solid fa-trash"></i> Eliminar </a>
+                    </td>                </tr>
+            }
+        </tbody>
+    </table>
 
+    <a class="btn btn-success table-btn" asp-page="./Editar">
+        <i class="fa-solid fa-plus"></i> Crear
+    </a>
+</div>

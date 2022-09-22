@@ -1,0 +1,52 @@
+﻿@page
+@model MascotaFeliz.App.Front.Pages.EliminarModel
+@{
+}
+
+<div>
+    <h3 style="color: red;"> <i class="fa-solid fa-user-shield"></i> &nbsp; ¿ Está seguro de eliminar el registro ? <i class="fa-solid fa-triangle-exclamation"></i></h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Campos</th>
+                    <th>Datos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td> @Model.Dueno.DuenoID</td>
+                </tr>
+                <tr>
+                    <td>Nombres</td>
+                    <td> @Model.Dueno.Nombres</td>
+                </tr>
+                <tr>
+                    <td>Apellios</td>
+                    <td> @Model.Dueno.Apellidos</td>
+                </tr>
+                <td>Direccion</td>
+                <td> @Model.Dueno.Direccion</td>
+                </tr>
+                <td>Telefono</td>
+                <td> @Model.Dueno.Telefono</td>
+                </tr>
+                <td>Correo</td>
+                <td> @Model.Dueno.Correo</td>
+                </tr>
+            </tbody>
+        </table>
+    <form method="post">
+        <input type="hidden" asp-for="Dueno.DuenoID" />        
+        <button type="submit" class="btn btn-danger">
+            <i class="fa-solid fa-trash"></i> &nbsp;Eliminar registro
+        </button>
+    </form>
+</div>
+<div>
+    <br>
+    <a class="btn btn-primary table-btn" asp-page="./Lista">
+        <i class="fa-solid fa-rotate-left"></i> return
+    </a>
+</div>
